@@ -4,12 +4,8 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Copy-pasting my own [first post](/placeholder/):
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+> My name is Ixai Lanzagorta. I’m a Mexican-Spaniard software engineer born in Guadalajara, México. At the time of writing, I’m employed by [Wizeline](https://www.wizeline.com/), where I’ve been working intermitently as backend and devops engineer.
+>
+> I’ve been lucky to have spent some extended time abroad in Japan, Vietnam and the United States. I value diversity, empathy and humility as much as I value ingenuity and technical proficiency.
