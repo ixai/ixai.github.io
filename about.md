@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Copy-pasting my own [first post](/placeholder/):
+Copy-pasting my own [first post]({% post_url 2018-10-17-placeholder %}):
 
 > My name is Ixai Lanzagorta. I’m a Mexican-Spaniard software engineer born in Guadalajara, México. At the time of writing, I’m employed by [Wizeline](https://www.wizeline.com/), where I’ve been working intermitently as backend and devops engineer.
 >
