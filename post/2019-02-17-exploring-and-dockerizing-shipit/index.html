@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Exploring and Dockerizing Shipit</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: red;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="http://ixai.mx/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.87.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Exploring and Dockerizing Shipit</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:yo@ixai.mx"><i class="fas fa-envelope"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/ixai/"><i class="fab fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/ixailanzagorta/"><i class="fab fa-linkedin"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Exploring and Dockerizing Shipit</h2>
+        <h5>January 1, 0001</h5>
+        
+
+    </div>
+
+    <div align="start" class="content"><p>I recently looked into <a href="https://github.com/Shopify/shipit-engine">Shipit</a> to see if it was a fit for my team&rsquo;s development workflow. The idea behind the <a href="https://engineering.shopify.com/blogs/engineering/introducing-the-merge-queue">merge queues</a> seemed very attractive to me. Enter the setup guide:</p>
+<blockquote>
+<p>Deploying and hosting a Rails application is not trivial, and this document assumes you know how to do it.</p>
+<p>In the future we&rsquo;d like to provide it fully packaged inside a Docker container, but it hasn&rsquo;t been done yet.</p>
+</blockquote>
+<p>And so I took a stab at dockerizing my first Rails application. I packaged the resulting code as a repository (<a href="https://github.com/ixai/shipit-docker">ixai/shipit-docker</a>) that contains instructions on how to build the Docker image and run it using <code>docker-compose</code>.</p>
+<p>The setup itself is very straightforward, and is mostly the result of following their <a href="https://github.com/Shopify/shipit-engine/blob/master/docs/setup.md">setup guide</a> and modifying the docker files provided by <a href="https://github.com/arthurnn/shipit_docker">arthurnn/shipit_docker</a>.</p>
+<p>As someone not familiar with Rails (or Ruby), most of the issues I ran into were with the configuration of the application. As a result, I tried to simplify the Rails template and configure the application by mounting and copying files instead. I understand this might not be consistent with the Rails ecosystem or the 12factor methodology, but I believe it to be simpler. Particularly, setting the GitHub app&rsquo;s private key in the <code>config/secrets.yml</code> file wasn&rsquo;t evident: I wasn&rsquo;t able to set it as an environment variable since it&rsquo;s a multiline string.</p>
+<p>Once the application was up and running, the main problem was that webhooks sent by GitHub weren&rsquo;t reaching my Shipit instance (<a href="https://github.com/Shopify/shipit-engine/issues/871">#871</a>). Luckily it was a known issue and had an easy fix.</p>
+<p>The repo is not production-ready, so take it as an easy way to try out Shipit and sell it to your team. One thing I was dissapointed to find out is that the browser plugin that allows you to queue merges from the GitHub interface isn&rsquo;t publicly available yet. This means that introducing Shipit would require a workflow disruption: don&rsquo;t merge from GitHub, do it from Shipit. For me, this is a minor inconvenience, but I see how others could opose it. Shipit also provides much more than merge queues, so while that was my main objective this time I&rsquo;ll need to keep exploring its fit into my team&rsquo;s workflow.</p>
+</div>
+
+    
+    
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
