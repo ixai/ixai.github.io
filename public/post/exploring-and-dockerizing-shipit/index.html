@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>Exploring and Dockerizing Shipit - Ixai</title>
+
+  
+  
+  <meta name="description" content="I recently looked into Shipit to see if it was a fit for my team&rsquo;s development workflow. The idea behind the merge queues seemed very attractive to me. Enter the setup guide:
+ Deploying and hosting a Rails application is not trivial, and this document assumes you know how to do it.
+In the future we&rsquo;d like to provide it fully packaged inside a Docker container, but it hasn&rsquo;t been done yet." />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://ixai.mx/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="http://ixai.mx/an-old-hope.min.css" />
+  <script
+    defer
+    src="http://ixai.mx/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="http://ixai.mx/theme.png" />
+
+  
+  <link rel="preload" as="image" href="http://ixai.mx/twitter.svg" />
+  
+  <link rel="preload" as="image" href="http://ixai.mx/github.svg" />
+  
+  <link rel="preload" as="image" href="http://ixai.mx/instagram.svg" />
+  
+
+  
+  <link rel="icon" href="http://ixai.mx/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://ixai.mx/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.92.2" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Exploring and Dockerizing Shipit" />
+<meta property="og:description" content="I recently looked into Shipit to see if it was a fit for my team&rsquo;s development workflow. The idea behind the merge queues seemed very attractive to me. Enter the setup guide:
+ Deploying and hosting a Rails application is not trivial, and this document assumes you know how to do it.
+In the future we&rsquo;d like to provide it fully packaged inside a Docker container, but it hasn&rsquo;t been done yet." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ixai.mx/post/exploring-and-dockerizing-shipit/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-02-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-17T00:00:00+00:00" />
+
+
+  
+  <meta itemprop="name" content="Exploring and Dockerizing Shipit">
+<meta itemprop="description" content="I recently looked into Shipit to see if it was a fit for my team&rsquo;s development workflow. The idea behind the merge queues seemed very attractive to me. Enter the setup guide:
+ Deploying and hosting a Rails application is not trivial, and this document assumes you know how to do it.
+In the future we&rsquo;d like to provide it fully packaged inside a Docker container, but it hasn&rsquo;t been done yet."><meta itemprop="datePublished" content="2019-02-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="366">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Exploring and Dockerizing Shipit"/>
+<meta name="twitter:description" content="I recently looked into Shipit to see if it was a fit for my team&rsquo;s development workflow. The idea behind the merge queues seemed very attractive to me. Enter the setup guide:
+ Deploying and hosting a Rails application is not trivial, and this document assumes you know how to do it.
+In the future we&rsquo;d like to provide it fully packaged inside a Docker container, but it hasn&rsquo;t been done yet."/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="true">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="http://ixai.mx/">Ixai</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+  <nav class="menu">
+    
+    <a class="" href="/about/">About</a>
+    
+  </nav>
+  
+
+  
+  <nav class="social">
+    
+    <a
+      class="twitter"
+      style="--url: url(./twitter.svg)"
+      href="https://twitter.com/ixai"
+      target="_blank"
+    ></a>
+    
+    <a
+      class="github"
+      style="--url: url(./github.svg)"
+      href="https://github.com/ixai"
+      target="_blank"
+    ></a>
+    
+    <a
+      class="instagram"
+      style="--url: url(./instagram.svg)"
+      href="https://instagram.com/ixailanza"
+      target="_blank"
+    ></a>
+    
+  </nav>
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      
+      <time>Feb 17, 2019</time>
+      
+      
+    </p>
+    <h1>Exploring and Dockerizing Shipit</h1>
+  </header>
+  <section class="post-content"><p>I recently looked into <a href="https://github.com/Shopify/shipit-engine">Shipit</a> to see if it was a fit for my team&rsquo;s development workflow. The idea behind the <a href="https://engineering.shopify.com/blogs/engineering/introducing-the-merge-queue">merge queues</a> seemed very attractive to me. Enter the setup guide:</p>
+<blockquote>
+<p>Deploying and hosting a Rails application is not trivial, and this document assumes you know how to do it.</p>
+<p>In the future we&rsquo;d like to provide it fully packaged inside a Docker container, but it hasn&rsquo;t been done yet.</p>
+</blockquote>
+<p>And so I took a stab at dockerizing my first Rails application. I packaged the resulting code as a repository (<a href="https://github.com/ixai/shipit-docker">ixai/shipit-docker</a>) that contains instructions on how to build the Docker image and run it using <code>docker-compose</code>.</p>
+<p>The setup itself is very straightforward, and is mostly the result of following their <a href="https://github.com/Shopify/shipit-engine/blob/master/docs/setup.md">setup guide</a> and modifying the docker files provided by <a href="https://github.com/arthurnn/shipit_docker">arthurnn/shipit_docker</a>.</p>
+<p>As someone not familiar with Rails (or Ruby), most of the issues I ran into were with the configuration of the application. As a result, I tried to simplify the Rails template and configure the application by mounting and copying files instead. I understand this might not be consistent with the Rails ecosystem or the 12factor methodology, but I believe it to be simpler. Particularly, setting the GitHub app&rsquo;s private key in the <code>config/secrets.yml</code> file wasn&rsquo;t evident: I wasn&rsquo;t able to set it as an environment variable since it&rsquo;s a multiline string.</p>
+<p>Once the application was up and running, the main problem was that webhooks sent by GitHub weren&rsquo;t reaching my Shipit instance (<a href="https://github.com/Shopify/shipit-engine/issues/871">#871</a>). Luckily it was a known issue and had an easy fix.</p>
+<p>The repo is not production-ready, so take it as an easy way to try out Shipit and sell it to your team. One thing I was dissapointed to find out is that the browser plugin that allows you to queue merges from the GitHub interface isn&rsquo;t publicly available yet. This means that introducing Shipit would require a workflow disruption: don&rsquo;t merge from GitHub, do it from Shipit. For me, this is a minor inconvenience, but I see how others could opose it. Shipit also provides much more than merge queues, so while that was my main objective this time I&rsquo;ll need to keep exploring its fit into my team&rsquo;s workflow.</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="post-nav">
+    
+    <a class="prev" href="http://ixai.mx/post/helper-para-escribir-un-diario/"><span>←</span><span>Helper para escribir un diario</span></a>
+     
+  </nav>
+  
+
+  
+  
+</article>
+
+</main>
+
+    <footer class="footer">
+  <p>
+    &#x1f12f;
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> 2022 <a href="http://ixai.mx/">Ixai</a>
+  </p>
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️
+  </p>
+  <p>
+    <a
+      href="https://github.com/nanxiaobei/hugo-paper"
+      rel="noopener"
+      target="_blank"
+      >Paper 5.1</a
+    >
+  </p>
+</footer>
+
+  </body>
+</html>
