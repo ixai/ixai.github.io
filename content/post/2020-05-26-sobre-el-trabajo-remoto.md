@@ -2,6 +2,7 @@
 title: Sobre el trabajo remoto
 date: 2020-05-26
 slug: sobre-el-trabajo-remoto
+draft: true
 ---
 
 Hace días estaba platicando con amigos sobre el trabajo remoto post-pandemia. El tema que más se discutió es si los trabajadores remotos deberían de ganar tanto como un trabajador en los headquarters, asumiendo que el costo de vida es mayor para el segundo. Decidí entonces escribir sobre por qué creo que si debería de ser así.

@@ -2,47 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Ixai</title>
-    <link>http://ixai.mx/post/</link>
+    <link>https://ixai.mx/post/</link>
     <description>Recent content in Posts on Ixai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://ixai.mx/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ixai.mx/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Placeholder, or the dreaded nth post</title>
-      <link>http://ixai.mx/post/placeholder/</link>
+      <link>https://ixai.mx/post/placeholder/</link>
       <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://ixai.mx/post/placeholder/</guid>
+      <guid>https://ixai.mx/post/placeholder/</guid>
       <description>As I iterate over the concept of a personal website for the nth, I&amp;rsquo;m once again reviewing what I&amp;rsquo;ve written before, dropping most (if not all) of it and rehashing &amp;ldquo;the first post&amp;rdquo;.
 I&amp;rsquo;m not an avid blogger – most of my writing prowess is targetted at writing documentation – but I still like to do it every now and then. Although I hope it&amp;rsquo;s interesting for someone, I don&amp;rsquo;t think my site needs to be permanent, or that anything&amp;rsquo;s lost by rewriting it&amp;rsquo;s content.</description>
     </item>
     
     <item>
-      <title>#BlackLivesMatter, y en México ¿qué?</title>
-      <link>http://ixai.mx/post/black-lives-matter-y-en-mexico-que/</link>
-      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://ixai.mx/post/black-lives-matter-y-en-mexico-que/</guid>
-      <description>No tengo mucho que escribir en forma de opinión, principalmente por ignorancia, pero he estado buscando algunos recursos que hagan eco de #BlackLivesMatter, pero tropicalizado. Se que es una lista mínima, pero por algo tengo que empezar.
- RacismoMX (@racismo_mx) #HablemosDeRacismo Red Desigualdades (@des_igualdades) México, ¿cómo vamos? (@mexicocomovamos) Mexicanos contra la corrupción y la impunidad (@MXvsCORRUPCION)  RacismoMX tiene una lista de lecturas recomendadas en su página, y como ya estoy mezclando contextos, agrego esta otra en inglés: 10 Books About Race To Read Instead Of Asking A Person Of Color To Explain Things To You.</description>
-    </item>
-    
-    <item>
-      <title>Sobre el trabajo remoto</title>
-      <link>http://ixai.mx/post/sobre-el-trabajo-remoto/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://ixai.mx/post/sobre-el-trabajo-remoto/</guid>
-      <description>Hace días estaba platicando con amigos sobre el trabajo remoto post-pandemia. El tema que más se discutió es si los trabajadores remotos deberían de ganar tanto como un trabajador en los headquarters, asumiendo que el costo de vida es mayor para el segundo. Decidí entonces escribir sobre por qué creo que si debería de ser así.
-La primera tiene que ver con el valor del trabajo. Yo creo que dado el mismo output, mi ubicación geográfica no debería de ser relevante para mi compensación, al igual que dado el mismo output, mi horario de trabajo no es relevante para mi evaluación.</description>
-    </item>
-    
-    <item>
       <title>Build Docker images in GitLab CI</title>
-      <link>http://ixai.mx/post/build-docker-images-in-gitlab-ci/</link>
+      <link>https://ixai.mx/post/build-docker-images-in-gitlab-ci/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://ixai.mx/post/build-docker-images-in-gitlab-ci/</guid>
+      <guid>https://ixai.mx/post/build-docker-images-in-gitlab-ci/</guid>
       <description>When implementing GitLab CI to build docker images, there were a few steps that weren&amp;rsquo;t immediately obvious from the documentation.
 First, you need to add Docker as a service.
 services: - docker:19.03.8-dind Second, you need to install the docker CLI. For debian-based systems, that&amp;rsquo;s docker.io, not docker.
@@ -50,21 +30,11 @@ before-script: - apt-get update - apt-get install docker.io -yqq Third, you need
     </item>
     
     <item>
-      <title>Helper para escribir un diario</title>
-      <link>http://ixai.mx/post/helper-para-escribir-un-diario/</link>
-      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://ixai.mx/post/helper-para-escribir-un-diario/</guid>
-      <description>Hice una función para ayudarme a llevar un diario en mi computadora. Es simple, yo solo ejecuto blog y se crea un archivo para el día de hoy a partir de un template. Si hoy ya existe, solamente lo abre.
-function blog { blog_path=&amp;#34;${HOME}/Documents/blog&amp;#34; today=&amp;#34;${blog_path}/$(date +%Y-%m-%d).md&amp;#34; if test ! -f $today; then cp &amp;#34;${blog_path}/template.md&amp;#34; $today fi subl $today } Apenas llevo una semana probandolo, pero me ha servido como acompañante de mi diario físico.</description>
-    </item>
-    
-    <item>
       <title>Exploring and Dockerizing Shipit</title>
-      <link>http://ixai.mx/post/exploring-and-dockerizing-shipit/</link>
+      <link>https://ixai.mx/post/exploring-and-dockerizing-shipit/</link>
       <pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://ixai.mx/post/exploring-and-dockerizing-shipit/</guid>
+      <guid>https://ixai.mx/post/exploring-and-dockerizing-shipit/</guid>
       <description>I recently looked into Shipit to see if it was a fit for my team&amp;rsquo;s development workflow. The idea behind the merge queues seemed very attractive to me. Enter the setup guide:
  Deploying and hosting a Rails application is not trivial, and this document assumes you know how to do it.
 In the future we&amp;rsquo;d like to provide it fully packaged inside a Docker container, but it hasn&amp;rsquo;t been done yet.</description>

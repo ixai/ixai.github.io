@@ -2,34 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://ixai.mx/</loc>
+    <loc>https://ixai.mx/</loc>
     <lastmod>2021-08-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://ixai.mx/post/placeholder/</loc>
+    <loc>https://ixai.mx/post/placeholder/</loc>
     <lastmod>2021-08-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://ixai.mx/post/</loc>
+    <loc>https://ixai.mx/post/</loc>
     <lastmod>2021-08-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://ixai.mx/post/black-lives-matter-y-en-mexico-que/</loc>
-    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ixai.mx/post/sobre-el-trabajo-remoto/</loc>
-    <lastmod>2020-05-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ixai.mx/post/build-docker-images-in-gitlab-ci/</loc>
+    <loc>https://ixai.mx/post/build-docker-images-in-gitlab-ci/</loc>
     <lastmod>2020-05-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://ixai.mx/post/helper-para-escribir-un-diario/</loc>
-    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://ixai.mx/post/exploring-and-dockerizing-shipit/</loc>
+    <loc>https://ixai.mx/post/exploring-and-dockerizing-shipit/</loc>
     <lastmod>2019-02-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://ixai.mx/about/</loc>
+    <loc>https://ixai.mx/about/</loc>
   </url><url>
-    <loc>http://ixai.mx/categories/</loc>
+    <loc>https://ixai.mx/categories/</loc>
   </url><url>
-    <loc>http://ixai.mx/tags/</loc>
+    <loc>https://ixai.mx/tags/</loc>
   </url>
 </urlset>

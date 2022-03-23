@@ -2,6 +2,7 @@
 title: "#BlackLivesMatter, y en México ¿qué?"
 date: 2020-06-01
 slug: black-lives-matter-y-en-mexico-que
+draft: true
 ---
 
 No tengo mucho que escribir en forma de opinión, principalmente por ignorancia, pero he estado buscando algunos recursos que hagan eco de #BlackLivesMatter, pero tropicalizado. Se que es una lista mínima, pero por algo tengo que empezar.
