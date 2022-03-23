@@ -5,10 +5,10 @@ theme = "paper"
 
 [params]
 author = "Ixai Lanzagorta"
-twitter = "ixai"
-instagram = "ixailanza"
-github = "ixai"
-linkedin = "/in/ixailanzagorta/"
+# twitter = "ixai"
+# instagram = "ixailanza"
+# github = "ixai"
+# linkedin = "/in/ixailanzagorta/"
 
 [[menu.main]]
 url = "/about/"
